@@ -22,6 +22,8 @@ Microservices, one folder per service. Each backend service is an independent AS
 | Admin | `Admin/` | 5008 | 7008 |
 | Frontend (React) | `Frontend/` | 5173 (Vite dev) | — |
 
+`Shared/` is a class library referenced by every backend service. It holds cross-service types only: enums (e.g. `UserRole`) and message contracts under `Contracts/` (integration events derive from `IntegrationEvent`). Don't put service-specific logic or persistence in it.
+
 Ports are fixed in each service's `Properties/launchSettings.json`; keep them unique when adding services.
 
 `Frontend/` is React + TypeScript built with Vite 5 (pinned to v5 because the local Node is 21.x, which Vite 6+/7 don't support).
